@@ -12,7 +12,9 @@ function danklog(obj, depth, startstring, endstring) {
     if (!depth) depth = 0;
     if (!startstring) startstring = "";
     if (!endstring) endstring = "";
-    if (obj instanceof Array) {
+    if (obj == null) {
+	console.log("  ".repeat(depth) + startstring + "null" + endstring);
+    } else if (obj instanceof Array) {
         console.log("  ".repeat(depth) + startstring +  "[");
         for (i = 0; i < obj.length; i++) {
             danklog(obj[i], depth + 1, "", ",")
